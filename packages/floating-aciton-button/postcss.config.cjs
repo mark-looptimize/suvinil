@@ -3,6 +3,7 @@ const OpenProps = require('open-props');
 const presetEnv = require('postcss-preset-env');
 const cssNano = require('cssnano');
 
+// Where should the open props values live
 const openPropsTargetSelector = ":host";
 
 const config = {

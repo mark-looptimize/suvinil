@@ -8,3 +8,5 @@ export class FloatingActionButton extends LitElement{
     return html`<h1>Hello World</h1>`;
   }
 }
+
+customElements.define('floating-action-button', FloatingActionButton);

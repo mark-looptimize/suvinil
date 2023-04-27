@@ -16,6 +16,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.59.1",
     "@typescript-eslint/parser": "^5.59.1",
+    "@web/dev-server": "^0.2.1",
     "cssnano": "^6.0.0",
     "esbuild": "^0.17.18",
     "eslint": "^8.39.0",
@@ -29,9 +30,17 @@
   },
   "scripts": {
     "build": "wireit",
-    "lint": "wireit"
+    "lint": "wireit",
+    "start": "wireit"
   },
   "wireit": {
+    "start":{
+      "command": "web-dev-server --node-resolve",
+      "service": true,
+      "dependencies": [
+        "build:typescript:watch"
+      ]
+    },
     "build": {
       "dependencies": [
         "bundle"
@@ -48,6 +57,13 @@
         "lib/**",
         ".tsbuildinfo"
       ],
+      "dependencies": [
+        "build:lit-css"
+      ]
+    },
+    "build:typescript:watch": {
+      "command": "tsc --watch",
+      "service": true,
       "dependencies": [
         "build:lit-css"
       ]

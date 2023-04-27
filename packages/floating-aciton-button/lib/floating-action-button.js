@@ -7,4 +7,5 @@ class FloatingActionButton extends LitElement {
 }
 FloatingActionButton.styles = styles;
 export { FloatingActionButton };
+customElements.define('floating-action-button', FloatingActionButton);
 //# sourceMappingURL=floating-action-button.js.map
