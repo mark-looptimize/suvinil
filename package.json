@@ -1,0 +1,16 @@
+{
+  "name": "suvunil-looptimize",
+  "version": "0.0.1",
+  "description": "Monorepo containing code and components for Suvinil project",
+  "private": "true",
+  "module": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/sticky-footer",
+    "packages/floating-aciton-button"
+  ]
+}

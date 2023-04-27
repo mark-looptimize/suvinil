@@ -1,0 +1,105 @@
+{
+  "name": "@looptimize/floating-action-button",
+  "version": "0.0.1",
+  "description": "A floating action button for the Suvinil website",
+  "main": "dist/floating-action-button.js",
+  "module": "dist/floating-action-button.js",
+  "exports": {
+    ".": "./dist/floating-action-button.js",
+    "./lib/floating-action-button": "./lib/floating-action-button.js",
+    "./lib/floating-action-button.js": "./lib/floating-action-button.js",
+    "./lib/floating-action-button.js.map": "./lib/floating-action-button.js.map",
+    "./lib/floating-action-button.d.ts": "./lib/floating-action-button.d.ts"
+  },
+  "types": "./lib/floating-action-button.d.ts",
+  "type": "module",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.1",
+    "@typescript-eslint/parser": "^5.59.1",
+    "cssnano": "^6.0.0",
+    "esbuild": "^0.17.18",
+    "eslint": "^8.39.0",
+    "eslint-plugin-lit": "^1.8.3",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0",
+    "postcss-jit-props": "^1.0.13",
+    "postcss-preset-env": "^8.3.2",
+    "typescript": "^5.0.4",
+    "wireit": "^0.9.5"
+  },
+  "scripts": {
+    "build": "wireit",
+    "lint": "wireit"
+  },
+  "wireit": {
+    "build": {
+      "dependencies": [
+        "bundle"
+      ]
+    },
+    "build:typescript": {
+      "command": "tsc --build --pretty",
+      "clean": "if-file-deleted",
+      "files": [
+        "src/**/*.ts",
+        "tsconfig.json"
+      ],
+      "output": [
+        "lib/**",
+        ".tsbuildinfo"
+      ],
+      "dependencies": [
+        "build:lit-css"
+      ]
+    },
+    "build:postcss": {
+      "command": "postcss src/styles/styles.css -o src/styles/compiled/styles.css",
+      "files": [
+        "src/styles/**/*.css",
+        "postcss.config.cjs"
+      ],
+      "output": [
+        "src/styles/compiled/styles.css"
+      ]
+    },
+    "build:lit-css": {
+      "command": "node css-to-ts.js ./src/styles/compiled/styles.css",
+      "files": [
+        "src/styles/compiled/styles.css"
+      ],
+      "output": [
+        "src/styles/compiled/styles.css.ts"
+      ],
+      "dependencies": [
+        "build:postcss"
+      ]
+    },
+    "bundle": {
+      "command": "esbuild lib/floating-action-button.js --bundle --minify --sourcemap --format=esm --outdir=dist",
+      "files": [
+        "lib/**/*.js"
+      ],
+      "output": [
+        "dist/**/*.*"
+      ],
+      "dependencies": [
+        "build:typescript"
+      ]
+    },
+    "lint": {
+      "command": "eslint --color --cache --cache-location .eslintcache .",
+      "files": [
+        "src/**/*.ts",
+        ".eslintignore",
+        ".eslintrc.cjs"
+      ],
+      "output": []
+    }
+  },
+  "author": "Looptimize",
+  "license": "ISC",
+  "dependencies": {
+    "lit": "^2.7.3",
+    "open-props": "^1.5.8"
+  }
+}
