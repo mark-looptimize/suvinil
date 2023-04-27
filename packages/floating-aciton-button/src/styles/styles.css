@@ -1,42 +1,86 @@
-@custom-media --viewport-medium (width <= 50rem);
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
-
-:root {
-  --mainColor: #12345678;
+:host {
+  --muted-orange: var(--color-orange-2, #F58C38);
+  --bright-orange: var(--color-orange-1, #f66602);
+  --viewport-margin: 2.5vmin;
+  --foreground-color: var(--fab-foreground-color, white);
+  --background-color: var(--fab-background-color, var(--muted-orange));
+  --background-hover-color: var(--fab-background-hover-color, var(--bright-orange));
+  --button-size: var(--fab-main-button-size, 2rem);
+  --mini-button-size: var(--fab-mini-button-size, 1.25rem);
+  --inset-block-size: var(--fab-inset-block-size, var(--viewport-margin));
+  --inset-inline-size: var(--fab-inset-inline-size, var(--viewport-margin));
 }
 
-body {
-  color: var(--mainColor);
-  font-family: system-ui;
-  overflow-wrap: break-word;
+.fabs {
+  position: fixed;
+  z-index: var(--layer-1);
+  display: flex;
+  flex-direction: column-reverse;
+  place-items: center;
+  gap: var(--viewport-margin);
+
+  inset-block: auto var(--inset-block-size);
+  inset-inline: auto var(--inset-inline-size);
 }
 
-:--heading {
-  background-image: image-set(url(img/heading.png) 1x, url(img/heading@2x.png) 2x);
+.fab {  
+  padding: calc(var(--button-size) / 2);
 
-  @media (--viewport-medium) {
-    margin-block: 0;
-  }
-}
+  border-radius: var(--radius-round);
+  aspect-ratio: 1;
 
-a {
-  color: rgb(0 0 100% / 90%);
+  background: var(--background-color);
+  color: var(--foreground-color);
+  box-shadow: var(--shadow-4);
 
-  &:hover {
-    color: rebeccapurple;
-  }
-}
+  -webkit-tap-highlight-color: transparent;
 
-.card {
-  border-radius: var(--radius-2);
-  padding: var(--size-fluid-3);
-  box-shadow: var(--shadow-2);
-
-  &:hover {
-    box-shadow: var(--shadow-3);
-  }
+  --_motion-reduced: 
+    box-shadow .2s var(--ease-3),
+    background-color .3s var(--ease-3);
+  --_motion-ok: 
+    var(--_motion-reduced),
+    transform .2s var(--ease-3),
+    outline-offset 145ms var(--ease-2);
+  --_transition: var(--_motion-reduced);
+  transition: var(--_transition);
 
   @media (--motionOK) {
-    animation: var(--animation-fade-in);
+    --_transition: var(--_motion-ok);
+  }
+
+  &.mini {
+    --button-size: var(--mini-button-size);
+  }
+
+  & > svg {
+    inline-size: var(--button-size);
+    block-size: var(--button-size);
+    stroke-width: 3px;
+    
+    @media (--motionOK) {
+      will-change: transform;
+      transition: transform .5s var(--ease-squish-3);
+    }
+  }
+
+  &:active {
+    box-shadow: var(--shadow-2);
+    
+    @media (--motionOK) {
+      transform: translateY(2%);
+    }
+  }
+
+  &:is(:active, :hover, :focus-visible) {
+    --background-color: var(--background-hover-color);
+  }
+
+  &:not(:first-of-type) {
+    z-index: -1;
+  }
+
+  &[data-icon="plus"]:hover > svg {
+    transform: rotateZ(.25turn);
   }
 }
