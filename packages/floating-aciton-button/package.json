@@ -9,7 +9,12 @@
     "./lib/floating-action-button": "./lib/floating-action-button.js",
     "./lib/floating-action-button.js": "./lib/floating-action-button.js",
     "./lib/floating-action-button.js.map": "./lib/floating-action-button.js.map",
-    "./lib/floating-action-button.d.ts": "./lib/floating-action-button.d.ts"
+    "./lib/floating-action-button-controller.d.ts": "./lib/floating-action-button-controller.d.ts",
+    "./lib/floating-action-button-controller.js": "./lib/floating-action-button-controller.js",
+    "./lib/floating-action-button-controller.js.map": "./lib/floating-action-button-controller.js.map",
+    "./lib/styles/compiled/styles.css.d.ts": "./lib/styles/compiled/styles.css.d.ts",
+    "./lib/styles/compiled/styles.css.js": "./lib/styles/compiled/styles.css.js",
+    "./lib/styles/compiled/styles.css.js.map": "./lib/styles/compiled/styles.css.js.map"
   },
   "types": "./lib/floating-action-button.d.ts",
   "type": "module",
