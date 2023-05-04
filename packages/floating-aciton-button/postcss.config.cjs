@@ -9,7 +9,9 @@ const openPropsTargetSelector = ":host";
 const config = {
     plugins: [
       postcssJitProps({...OpenProps, custom_selector: openPropsTargetSelector}),
-      presetEnv,
+      presetEnv({
+        stage: 0,
+      }),
       cssNano({
         preset: 'default'
       })

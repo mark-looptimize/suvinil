@@ -3,8 +3,8 @@
   --bright-orange: var(--color-orange-1, #f66602);
   --viewport-margin: 2.5vmin;
   --foreground-color: var(--fab-foreground-color, white);
-  --background-color: var(--fab-background-color, var(--muted-orange));
-  --background-hover-color: var(--fab-background-hover-color, var(--bright-orange));
+  --background-color: var(--fab-background-color, var(--bright-orange));
+  --background-hover-color: var(--fab-background-hover-color, var(--muted-orange));
   --button-size: var(--fab-main-button-size, 2rem);
   --mini-button-size: var(--fab-mini-button-size, 1.25rem);
   --inset-block-size: var(--fab-inset-block-size, var(--viewport-margin));
@@ -27,6 +27,7 @@
   padding: calc(var(--button-size) / 2);
 
   border-radius: var(--radius-round);
+  border: 0;
   aspect-ratio: 1;
 
   background: var(--background-color);
@@ -45,7 +46,7 @@
   --_transition: var(--_motion-reduced);
   transition: var(--_transition);
 
-  @media (--motionOK) {
+  @media (prefers-reduced-motion: no-preference) {
     --_transition: var(--_motion-ok);
   }
 
@@ -58,7 +59,7 @@
     block-size: var(--button-size);
     stroke-width: 3px;
     
-    @media (--motionOK) {
+    @media (prefers-reduced-motion: no-preference) {
       will-change: transform;
       transition: transform .5s var(--ease-squish-3);
     }
@@ -67,7 +68,7 @@
   &:active {
     box-shadow: var(--shadow-2);
     
-    @media (--motionOK) {
+    @media (prefers-reduced-motion: no-preference) {
       transform: translateY(2%);
     }
   }
