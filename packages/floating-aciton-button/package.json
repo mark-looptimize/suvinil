@@ -39,7 +39,7 @@
     "start": "wireit"
   },
   "wireit": {
-    "start":{
+    "start": {
       "command": "web-dev-server --node-resolve",
       "service": true,
       "dependencies": [
@@ -121,6 +121,7 @@
   "license": "ISC",
   "dependencies": {
     "lit": "^2.7.3",
-    "open-props": "^1.5.8"
+    "open-props": "^1.5.8",
+    "tslib": "^2.5.2"
   }
 }

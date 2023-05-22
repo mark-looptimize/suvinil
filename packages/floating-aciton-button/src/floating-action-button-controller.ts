@@ -5,7 +5,7 @@ export class FloatingActionButtonController implements ReactiveController{
 
   private _originalButtonElements = {
     'accessibilityButton': document.getElementById('INDmenu-btn'),
-    'oneTrustButton': document.getElementById('onetrust-consent-sdk'),
+    'oneTrustButton': document.getElementById('ot-sdk-btn-floating'),
     'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper') as HTMLElement | null
   };
 
