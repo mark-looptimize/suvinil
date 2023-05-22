@@ -2,7 +2,7 @@ export class FloatingActionButtonController {
     constructor(host) {
         this._originalButtonElements = {
             'accessibilityButton': document.getElementById('INDmenu-btn'),
-            'oneTrustButton': document.getElementById('onetrust-consent-sdk'),
+            'oneTrustButton': document.getElementById('ot-sdk-btn-floating'),
             'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper')
         };
         this._faqUrl = 'https://faq.suvinil.com.br/s/';
