@@ -6,7 +6,10 @@ export class FloatingActionButtonController implements ReactiveController{
   private _originalButtonElements = {
     'accessibilityButton': document.getElementById('INDmenu-btn'),
     'oneTrustButton': document.getElementById('ot-sdk-btn-floating'),
-    'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper') as HTMLElement | null
+    'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper') as HTMLElement | null,
+    'helpButtonTwo': document.querySelector('div[class^=styled__Help') as HTMLElement | null,
+    'scrollToTopOne': document.querySelector('div[class^=styled__BackToTop') as HTMLElement | null,
+    'scrollToTopTwo': document.querySelector('div[class^=ScrollToTopstyle__Container') as HTMLElement | null,
   };
 
   private _faqUrl = 'https://faq.suvinil.com.br/s/';
@@ -34,6 +37,18 @@ export class FloatingActionButtonController implements ReactiveController{
 
     if (this._originalButtonElements.helpButton !== null) {
       this._originalButtonElements.helpButton.hidden = false;
+    }
+
+    if (this._originalButtonElements.scrollToTopOne !== null) {
+      this._originalButtonElements.scrollToTopOne.hidden = false;
+    }
+
+    if (this._originalButtonElements.scrollToTopTwo !== null) {
+      this._originalButtonElements.scrollToTopTwo.hidden = false;
+    }
+
+    if (this._originalButtonElements.helpButtonTwo !== null) {
+      this._originalButtonElements.helpButtonTwo.hidden = false;
     }
   }
 
@@ -70,6 +85,18 @@ export class FloatingActionButtonController implements ReactiveController{
 
     if (this._originalButtonElements.helpButton !== null) {
       this._originalButtonElements.helpButton.hidden = true;
+    }
+
+    if (this._originalButtonElements.scrollToTopOne !== null) {
+      this._originalButtonElements.scrollToTopOne.hidden = true;
+    }
+
+    if (this._originalButtonElements.scrollToTopTwo !== null) {
+      this._originalButtonElements.scrollToTopTwo.hidden = true;
+    }
+
+    if (this._originalButtonElements.helpButtonTwo !== null) {
+      this._originalButtonElements.helpButtonTwo.hidden = true;
     }
   }
 

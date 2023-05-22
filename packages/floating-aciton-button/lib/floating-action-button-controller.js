@@ -3,7 +3,10 @@ export class FloatingActionButtonController {
         this._originalButtonElements = {
             'accessibilityButton': document.getElementById('INDmenu-btn'),
             'oneTrustButton': document.getElementById('ot-sdk-btn-floating'),
-            'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper')
+            'helpButton': document.querySelector('div[class^=Helpstyle__HelpWrapper'),
+            'helpButtonTwo': document.querySelector('div[class^=styled__Help'),
+            'scrollToTopOne': document.querySelector('div[class^=styled__BackToTop'),
+            'scrollToTopTwo': document.querySelector('div[class^=ScrollToTopstyle__Container'),
         };
         this._faqUrl = 'https://faq.suvinil.com.br/s/';
         (this.host = host).addController(this);
@@ -23,6 +26,15 @@ export class FloatingActionButtonController {
         }
         if (this._originalButtonElements.helpButton !== null) {
             this._originalButtonElements.helpButton.hidden = false;
+        }
+        if (this._originalButtonElements.scrollToTopOne !== null) {
+            this._originalButtonElements.scrollToTopOne.hidden = false;
+        }
+        if (this._originalButtonElements.scrollToTopTwo !== null) {
+            this._originalButtonElements.scrollToTopTwo.hidden = false;
+        }
+        if (this._originalButtonElements.helpButtonTwo !== null) {
+            this._originalButtonElements.helpButtonTwo.hidden = false;
         }
     }
     toggleOneTrustMenu() {
@@ -55,6 +67,15 @@ export class FloatingActionButtonController {
         }
         if (this._originalButtonElements.helpButton !== null) {
             this._originalButtonElements.helpButton.hidden = true;
+        }
+        if (this._originalButtonElements.scrollToTopOne !== null) {
+            this._originalButtonElements.scrollToTopOne.hidden = true;
+        }
+        if (this._originalButtonElements.scrollToTopTwo !== null) {
+            this._originalButtonElements.scrollToTopTwo.hidden = true;
+        }
+        if (this._originalButtonElements.helpButtonTwo !== null) {
+            this._originalButtonElements.helpButtonTwo.hidden = true;
         }
     }
 }
